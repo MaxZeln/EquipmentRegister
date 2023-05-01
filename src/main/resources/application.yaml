@@ -1,0 +1,24 @@
+spring:
+  main:
+    banner-mode: off
+  datasource:
+    url: jdbc:postgresql://localhost:5434/EquipmentRegister
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+      mode: always
+
+  jpa:
+    spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate: ddl-auto=update
+
+    properties:
+      jakarta:
+        persistence:
+          schema-generation:
+            scripts:
+              action: create
+              create-target: create.sql
+              create-source: metadata

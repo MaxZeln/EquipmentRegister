@@ -1,4 +1,4 @@
-package ru.testproject.equipmentregister.model;
+package ru.testproject.equipmentregister.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
@@ -11,24 +11,18 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "categories")
-@Schema(description = "Entity of category ")
-public class Category {
+@Schema(description = "Data transfer object of category ")
+public class CategoryDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "global_seq_categories")
-    @SequenceGenerator(name = "global_seq_categories", sequenceName = "global_seq_categories", allocationSize = 1)
     @Schema(description = "Category id in database", example = "20")
     private Long id;
 
-    @Column(name = "category_name", nullable = false)
     @Schema(description = "Name of category", example = "smartphones")
     private String categoryName;
 
     @Override
     public String toString() {
-        return "Category{" +
+        return "CategoryDto{" +
                 "id=" + id +
                 ", categoryName='" + categoryName + '\'' +
                 '}';
